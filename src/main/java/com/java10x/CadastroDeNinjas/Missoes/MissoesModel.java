@@ -15,12 +15,12 @@ import java.util.List;
 @Data
 public class MissoesModel {
 
-    @Id
+    @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nomeMissao;
     private String dificuldade;
-    // Uma missao pode ter varos ninjas
+    // Uma missao pode ter varios ninjas
     @OneToMany(mappedBy = "missoes")
     private List<NinjaModel> ninja;
 }
