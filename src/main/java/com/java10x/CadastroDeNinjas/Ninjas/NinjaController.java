@@ -15,40 +15,40 @@ public class NinjaController {
     }
 
     @GetMapping("/boasvindas")
-    public String boasVindas(){
+    public String boasVindas() {
         return "Olá mundo! Sejam bem vindos.";
     }
 
     // Adicionar Ninja
     @PostMapping("/criar")
-    public NinjaModel criarNinja(@RequestBody NinjaModel ninja){
+    public NinjaModel criarNinja(@RequestBody NinjaModel ninja) {
         return ninjaService.criarNinja(ninja);
     }
 
 
     // Listar todos os ninjas
     @GetMapping("/listar")
-    public List<NinjaModel> listarNinjas(){
+    public List<NinjaModel> listarNinjas() {
         return ninjaService.listarNinjas();
     }
 
     // Listar ninja por id
     @GetMapping("/listar/{id}")
-    public NinjaModel listarNinjaPorId(@PathVariable Long id){
+    public NinjaModel listarNinjaPorId(@PathVariable Long id) {
         return ninjaService.listarNinjaPorId(id);
     }
 
 
     // Alterar dados do ninja
     @PutMapping("/alterarID")
-    public String alterarNinja(){
+    public String alterarNinja() {
         return "Ninja com ID atualizado.";
     }
 
     // Deletar ninja
-    @DeleteMapping("/deletarID")
-    public String deletarNinja(){
-        return "Ninja com ID deletado.";
+    @DeleteMapping("/deletar/{id}")
+    public void deletarNinjaPorId(@PathVariable Long id) {
+        ninjaService.deletarNinjaPorId(id);
     }
 
 }
