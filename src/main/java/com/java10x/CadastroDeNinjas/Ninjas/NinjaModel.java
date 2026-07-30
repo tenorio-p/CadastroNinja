@@ -13,13 +13,23 @@ public class NinjaModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+
+    @Column(name = "nome")
     private String nome;
+
     @Column(unique = true)
     private String email;
+
+    @Column(name = "idade")
     private int idade;
-    // Muitos ninjas podem ter somente uma missao
+
+    @Column(name = "rank")
+    private String rank;
+
+
     @ManyToOne
-    @JoinColumn(name = "missoes_id") // -> chave estrangeira (Foreing Key)
+    @JoinColumn(name = "missoes_id")
     private MissoesModel missoes;
 }
